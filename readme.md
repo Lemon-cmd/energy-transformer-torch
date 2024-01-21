@@ -3,7 +3,7 @@
 
 <img src="ET_visual.png" alt="drawing" height="500" width="2250"/>
 
-This is the official repository for the Energy Transformer written in PyTorch. The aim of this repository is to provide a quick example of ET usage in mask image completion and for users who are familiar with PyTorch and are interested in utilizing ET, which is originally written and developed in Jax.
+This is the official repository for the Energy Transformer (ET) written in PyTorch. The aim of this repository is to provide a quick example of ET usage in mask image completion and for users who are familiar with PyTorch and are interested in utilizing ET, which is originally written and developed in Jax.
 
 # Installation
 ```
