@@ -1,0 +1,7 @@
+numpy==1.25.2
+matplotlib==3.8.0
+torch==2.0.1
+torchvision==0.15.2
+tqdm==4.65.0
+argparse
+einops
