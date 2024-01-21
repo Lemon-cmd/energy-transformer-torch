@@ -99,20 +99,12 @@ model.load_state_dict(torch.load('./example_model/model.pth'))
 model.eval()
 ```
 
-<div id="banner">
-    <div class="inline-block">
-        <img src ="example1.gif" alt="drawing" height="200" width="200">
-    </div>
-    <div class="inline-block">
-        <img src ="example2.gif" alt="drawing" height="200" width="200">
-    </div>
-    <div class="inline-block">
-        <img src ="example3.gif" alt="drawing" height="200" width="200">
-    </div>
-    <div class="inline-block">
-        <img src ="example4.gif" alt="drawing" height="200" width="200">
-    </div>
-</div>
+<p float="left">
+    <img src ="example1.gif" alt="drawing" height="200" width="200">
+    <img src ="example2.gif" alt="drawing" height="200" width="200">
+    <img src ="example3.gif" alt="drawing" height="200" width="200">
+    <img src ="example4.gif" alt="drawing" height="200" width="200">
+</p>
 
 <img src="example1.png" alt="drawing" height="1400" width="800"/>
 
