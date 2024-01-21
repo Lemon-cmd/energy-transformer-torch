@@ -12,6 +12,13 @@ pip install -r requirements.txt
 ```
 If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions.
 
+<p float="left">
+    <img src ="example1.gif" alt="drawing" height="220" width="205">
+    <img src ="example2.gif" alt="drawing" height="220" width="205">
+    <img src ="example3.gif" alt="drawing" height="220" width="205">
+    <img src ="example4.gif" alt="drawing" height="220" width="205">
+</p>
+
 # Model Usage
 ```python
 from image_et import ImageET as ET
@@ -64,7 +71,7 @@ python train_mask_image_et.py \
     --data_name CIFAR100
 ```
 
-## Pretrained Models
+## Loading Model
 There is an example model provided in the **example_model** folder. For further usage, see the provided jupyter notebook file (***eval_image_et_cifar10.ipynb***). 
 ```python
 import torch, pprint
@@ -99,15 +106,8 @@ model.load_state_dict(torch.load('./example_model/model.pth'))
 model.eval()
 ```
 
-<p float="left">
-    <img src ="example1.gif" alt="drawing" height="200" width="200">
-    <img src ="example2.gif" alt="drawing" height="200" width="200">
-    <img src ="example3.gif" alt="drawing" height="200" width="200">
-    <img src ="example4.gif" alt="drawing" height="200" width="200">
-</p>
-
+# Reconstruction Example
 <img src="example1.png" alt="drawing" height="1400" width="800"/>
-
 
 
 ## Citation
