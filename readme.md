@@ -5,7 +5,6 @@
 
 This is the official repository for the Energy Transformer written in PyTorch. The aim of this repository is to provide a quick example of ET usage in mask image completion and for users who are familiar with PyTorch and are interested in utilizing ET, which is originally written and developed in Jax.
 
-
 # Installation
 ```
 pip install -r requirements.txt
@@ -13,11 +12,16 @@ pip install -r requirements.txt
 If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions.
 
 <p float="left">
-    <img src ="example1.gif" alt="drawing" height="220" width="200">
-    <img src ="example2.gif" alt="drawing" height="220" width="200">
-    <img src ="example3.gif" alt="drawing" height="220" width="200">
-    <img src ="example4.gif" alt="drawing" height="220" width="200">
+    <img src ="example1.gif" height="220" width="200">
+    <img src ="example2.gif" height="220" width="200">
+    <img src ="example3.gif" height="220" width="200">
+    <img src ="example4.gif" height="220" width="200">
 </p>
+
+![Example 1](example1.gif)
+![Example 2](example2.gif)
+![Example 3](example3.gif)
+![Example 3](example4.gif)
 
 # Model Usage
 ```python
