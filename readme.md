@@ -13,10 +13,10 @@ pip install -r requirements.txt
 If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions.
 
 <p float="left">
-    <img src ="example1.gif" alt="drawing" height="220" width="205">
-    <img src ="example2.gif" alt="drawing" height="220" width="205">
-    <img src ="example3.gif" alt="drawing" height="220" width="205">
-    <img src ="example4.gif" alt="drawing" height="220" width="205">
+    <img src ="example1.gif" alt="drawing" height="220" width="200">
+    <img src ="example2.gif" alt="drawing" height="220" width="200">
+    <img src ="example3.gif" alt="drawing" height="220" width="200">
+    <img src ="example4.gif" alt="drawing" height="220" width="200">
 </p>
 
 # Model Usage
