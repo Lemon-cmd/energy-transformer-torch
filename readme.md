@@ -1,5 +1,5 @@
 # Energy Transformer
-> A Transformer variant that is an associative memory model and a continuous dynamical system with a tractable energy that is guaranteed to converge to a fixed point. See [our paper](https://arxiv.org/abs/2302.07253) and for other official codes, see [ET for Graph Anamoly Detection (PyTorch)](https://github.com/zhuergou/Energy-Transformer-for-Graph-Anomaly-Detection/), [ET for Graph Classification (Jax)](https://github.com/Lemon-cmd/energy-transformer-graph/tree/main) and [ET for Image (Jax)](https://github.com/bhoov/energy-transformer-jax).
+> A novel Transformer variant that is both an associative memory model and a continuous dynamical system with a tractable energy that is guaranteed to converge to a fixed point. See [our paper](https://arxiv.org/abs/2302.07253) for full details. Also, check out other official implementations of our work, see [ET for Graph Anamoly Detection (PyTorch)](https://github.com/zhuergou/Energy-Transformer-for-Graph-Anomaly-Detection/), [ET for Graph Classification (Jax)](https://github.com/Lemon-cmd/energy-transformer-graph) and [ET for Image (Jax)](https://github.com/bhoov/energy-transformer-jax).
 
 <img src="ET_visual.png" alt="drawing" height="500" width="2250"/>
 
