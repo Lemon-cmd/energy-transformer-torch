@@ -18,11 +18,6 @@ If you encounter trouble with installing PyTorch, see https://pytorch.org for fu
     <img src ="example4.gif" height="220" width="200">
 </p>
 
-![Example 1](example1.gif)
-![Example 2](example2.gif)
-![Example 3](example3.gif)
-![Example 3](example4.gif)
-
 # Model Usage
 ```python
 from image_et import ImageET as ET
