@@ -1,7 +1,7 @@
 # Energy Transformer
 > A novel Transformer variant that is both an associative memory model and a continuous dynamical system with a tractable energy that is guaranteed to converge to a fixed point. See [our paper](https://arxiv.org/abs/2302.07253) for full details. Also, check out other official implementations of our work, see [ET for Graph Anamoly Detection (PyTorch)](https://github.com/zhuergou/Energy-Transformer-for-Graph-Anomaly-Detection/), [ET for Graph Classification (Jax)](https://github.com/Lemon-cmd/energy-transformer-graph) and [ET for Image (Jax)](https://github.com/bhoov/energy-transformer-jax).
 
-<img src="ET_visual.png" alt="drawing" height="500" width="2250"/>
+<img src="./visuals/ET_visual.png" alt="drawing" height="500" width="2250"/>
 
 This is the official repository for the Energy Transformer (ET) written in PyTorch. The aim of this repository is to provide a quick example of ET usage in mask image completion and for users who are familiar with PyTorch and are interested in utilizing ET, which is originally written and developed in Jax.
 
@@ -12,10 +12,10 @@ pip install -r requirements.txt
 If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions.
 
 <p float="left">
-    <img src ="example1.gif" height="220" width="200">
-    <img src ="example2.gif" height="220" width="200">
-    <img src ="example3.gif" height="220" width="200">
-    <img src ="example4.gif" height="220" width="200">
+    <img src ="./visuals/example1.gif" height="220" width="200">
+    <img src ="./visuals/example2.gif" height="220" width="200">
+    <img src ="./visuals/example3.gif" height="220" width="200">
+    <img src ="./visuals/example4.gif" height="220" width="200">
 </p>
 
 # Model Usage
@@ -106,7 +106,7 @@ model.eval()
 ```
 
 # Reconstruction Example
-<img src="example1.png" alt="drawing" height="1400" width="800"/>
+<img src="./visuals/example1.png" alt="drawing" height="1400" width="800"/>
 
 
 ## Citation
