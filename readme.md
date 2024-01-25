@@ -106,8 +106,9 @@ model.eval()
 ```
 
 # Reconstruction Example
+<p align="center">
 <img src="example1.png" alt="drawing" height="1400" width="800"/>
-
+</p>
 
 ## Citation
 if you find the code or the work useful, please cite our work!
