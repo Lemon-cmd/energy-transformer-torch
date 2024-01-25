@@ -106,7 +106,7 @@ model.eval()
 ```
 
 # Reconstruction Example
-<img src="./visuals/example1.png" alt="drawing" height="1400" width="800"/>
+<img src="example1.png" alt="drawing" height="1400" width="800"/>
 
 
 ## Citation
