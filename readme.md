@@ -11,14 +11,26 @@ pip install -r requirements.txt
 ```
 If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions.
 
-<p float="left">
-    <img src ="./visuals/example1.gif" height="220" width="200">
-    <img src ="./visuals/example2.gif" height="220" width="200">
-    <img src ="./visuals/example3.gif" height="220" width="200">
-    <img src ="./visuals/example4.gif" height="220" width="200">
+<p float="center">
+    <img src ="./visuals/ex_6.gif">
+    <img src ="./visuals/ex_7.gif">
+    <img src ="./visuals/ex_8.gif">
+    <img src ="./visuals/ex_9.gif">
+    <img src ="./visuals/ex_10.gif">
+    <img src ="./visuals/ex_11.gif">
+    <img src ="./visuals/ex_12.gif">
+    <img src ="./visuals/ex_13.gif">
+    <img src ="./visuals/ex_14.gif">
+    <img src ="./visuals/ex_15.gif">
+    <img src ="./visuals/ex_0.gif">
+    <img src ="./visuals/ex_5.gif">
 </p>
 
-# Model Usage
+# Usage
+<p float="center">
+<img src="./visuals/ET-details.jpeg" alt="drawing" height="425" width="2200"/>
+</p>
+
 ```python
 from image_et import ImageET as ET
 
