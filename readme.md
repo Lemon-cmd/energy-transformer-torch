@@ -17,18 +17,18 @@ If you encounter trouble with installing PyTorch, see https://pytorch.org for fu
 
 # Model
 <p float="center">
-    <img src ="./visuals/ex_6.gif">
-    <img src ="./visuals/ex_7.gif">
-    <img src ="./visuals/ex_8.gif">
-    <img src ="./visuals/ex_9.gif">
-    <img src ="./visuals/ex_10.gif">
-    <img src ="./visuals/ex_11.gif">
-    <img src ="./visuals/ex_12.gif">
-    <img src ="./visuals/ex_13.gif">
-    <img src ="./visuals/ex_14.gif">
-    <img src ="./visuals/ex_15.gif">
-    <img src ="./visuals/ex_0.gif">
-    <img src ="./visuals/ex_5.gif">
+    <img src ="./visuals/ex_6.gif" height = 64>
+    <img src ="./visuals/ex_7.gif" height = 64>
+    <img src ="./visuals/ex_8.gif" height = 64>
+    <img src ="./visuals/ex_9.gif" height = 64>
+    <img src ="./visuals/ex_10.gif" height = 64>
+    <img src ="./visuals/ex_11.gif" height = 64>
+    <img src ="./visuals/ex_12.gif" height = 64>
+    <img src ="./visuals/ex_13.gif" height = 64>
+    <img src ="./visuals/ex_14.gif" height = 64>
+    <img src ="./visuals/ex_15.gif" height = 64>
+    <img src ="./visuals/ex_0.gif" height = 64>
+    <img src ="./visuals/ex_5.gif" height = 64>
 </p>
 
 ```python
