@@ -9,8 +9,13 @@ This is the official repository for the Energy Transformer (ET) written in PyTor
 ```
 pip install -r requirements.txt
 ```
-If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions.
+If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions. Credits to [Ben Hoover](https://github.com/bhoov) for the diagrams.
 
+<p float="center">
+<img src="./visuals/ET-details.jpeg" alt="drawing" height="425" width="2200"/>
+</p>
+
+# Model
 <p float="center">
     <img src ="./visuals/ex_6.gif">
     <img src ="./visuals/ex_7.gif">
@@ -24,11 +29,6 @@ If you encounter trouble with installing PyTorch, see https://pytorch.org for fu
     <img src ="./visuals/ex_15.gif">
     <img src ="./visuals/ex_0.gif">
     <img src ="./visuals/ex_5.gif">
-</p>
-
-# Usage
-<p float="center">
-<img src="./visuals/ET-details.jpeg" alt="drawing" height="425" width="2200"/>
 </p>
 
 ```python
