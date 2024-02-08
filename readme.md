@@ -7,8 +7,11 @@ This is the official repository for the Energy Transformer (ET) written in PyTor
 
 # Installation
 ```
+conda env create -f environment.yml
+conda activate energy-transformer-torch
 pip install -r requirements.txt
 ```
+
 If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions. Credits to [Ben Hoover](https://github.com/bhoov) for the diagrams.
 
 <p float="center">
@@ -74,7 +77,7 @@ python train_mask_image_et.py \
     --time_steps 12 \
     --blocks 1 \
     --epochs 1000 \
-    --avg_gpus False \
+    --avg_gpu False \
     --result_path ./my_et \
     --batch_size 128 \
     --learning_rate 5e-5 \ 

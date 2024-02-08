@@ -1,3 +1,6 @@
+/data
+results/
+
 *.tfevents*
 figures
 *.bak
