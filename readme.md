@@ -7,8 +7,11 @@ This is the official repository for the Energy Transformer (ET) written in PyTor
 
 # Installation
 ```
+conda env create -f environment.yml
+conda activate energy-transformer-torch
 pip install -r requirements.txt
 ```
+
 If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions. Credits to [Ben Hoover](https://github.com/bhoov) for the diagrams.
 
 <p float="center">
