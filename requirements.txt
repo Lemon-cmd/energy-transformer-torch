@@ -5,3 +5,4 @@ torchvision==0.15.2
 tqdm==4.65.0
 argparse
 einops
+accelerate
