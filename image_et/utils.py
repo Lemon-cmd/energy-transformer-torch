@@ -1,4 +1,4 @@
-import torch, torchvision, numpy as np
+import torch, numpy as np
 from functools import partial
 from torchvision import transforms
 from torchvision.datasets import CIFAR10, CIFAR100
@@ -12,7 +12,9 @@ CIFAR100_MU = (0.2675, 0.2565, 0.2761)
 
 
 def gen_mask_id(num_patch, mask_size, batch_size: int):
-    return torch.randn(num_patch).argsort(-1)[:mask_size]
+    batch_id = torch.arange(batch_size)[:, None]
+    mask_id = torch.randn(batch_size, num_patch).argsort(-1)[:, :mask_size]
+    return batch_id, mask_id
 
 
 def count_parameters(model):
@@ -20,7 +22,9 @@ def count_parameters(model):
 
 
 def unnormalize(x, std, mean):
-    return x * std + mean
+    x = x * std + mean
+    x.clamp_(0, 255)
+    return x
 
 
 def device():
@@ -41,8 +45,9 @@ def str2bool(v):
     return False
 
 
-def GetCIFAR(root, which: str = "CIFAR10"):
-    if which == "CIFAR10":
+def GetCIFAR(root, which: str = "cifar10"):
+    which = which.lower()
+    if which == "cifar10":
         std, mean = CIFAR10_STD, CIFAR10_MU
 
         trainset = CIFAR10(
@@ -71,7 +76,7 @@ def GetCIFAR(root, which: str = "CIFAR10"):
             ),
         )
 
-    elif which == "CIFAR100":
+    elif which == "cifar100":
         std, mean = CIFAR100_STD, CIFAR100_MU
 
         trainset = CIFAR100(
@@ -100,12 +105,8 @@ def GetCIFAR(root, which: str = "CIFAR10"):
             ),
         )
     else:
-        raise Exception("Not Available.")
+        raise NotImplementedError("Not Available.")
 
-    std, mean = map(lambda z: np.array(z)[:, None, None] * 255., (std, mean))
+    std, mean = map(lambda z: np.array(z)[None, :, None, None] * 255.0, (std, mean))
 
-    return (
-        trainset,
-        testset,
-        partial(unnormalize, std=std, mean=mean),
-    )
+    return (trainset, testset, partial(unnormalize, std=std, mean=mean))

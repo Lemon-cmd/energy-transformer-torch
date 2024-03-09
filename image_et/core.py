@@ -233,11 +233,11 @@ class ET(nn.Module):
                 for _ in range(blocks)
             ]
         )
-        
+
     def visualize(
         self,
         x: TENSOR,
-        mask_id: Optional[TENSOR] = None,
+        mask: Optional[TENSOR] = None,
         alpha: float = 1.0,
         *,
         attn_mask: Optional[Sequence[TENSOR]] = None,
@@ -246,9 +246,9 @@ class ET(nn.Module):
         x = self.patch(x)
         x = self.encode(x)
 
-        if mask_id is not None:
-            x[:, mask_id] = self.mask
-            
+        if mask is not None:
+            x[:, mask] = self.mask
+
         x = torch.cat([self.cls.repeat(x.size(0), 1, 1), x], dim=1)
         x = self.pos(x)
 
@@ -264,14 +264,11 @@ class ET(nn.Module):
 
                 energies.append(E)
 
-                embeddings.append(
-                    self.patch(self.decode(x)[:, 1:], reverse=True)
-                )
-                
-        g = norm(x)  
+                embeddings.append(self.patch(self.decode(x)[:, 1:], reverse=True))
+
+        g = norm(x)
         energies.append(et(g, attn_mask))
         return energies, embeddings
-        
 
     def evolve(
         self,
@@ -297,13 +294,13 @@ class ET(nn.Module):
             g = norm(x)
             E = et(g, attn_mask)
             energies.append(E)
-            
+
         return x, energies
 
     def forward(
         self,
         x: TENSOR,
-        mask_id: Optional[TENSOR] = None,
+        mask: Optional[TENSOR] = None,
         attn_mask: Optional[Sequence[TENSOR]] = None,
         *,
         alpha: float = 1.0,
@@ -313,8 +310,8 @@ class ET(nn.Module):
         x = self.patch(x)
         x = self.encode(x)
 
-        if mask_id is not None:
-            x[:, mask_id] = self.mask
+        if mask is not None:
+            x[mask] = self.mask
 
         x = torch.cat([self.cls.repeat(x.size(0), 1, 1), x], dim=1)
         x = self.pos(x)
