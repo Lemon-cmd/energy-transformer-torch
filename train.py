@@ -86,7 +86,7 @@ def main(args):
 
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         opt,
-        cooldown=0,
+        cooldown=3,
         patience=10,
         factor=0.85,
     )
@@ -182,14 +182,22 @@ def main(args):
                         normalize=True,
                         scale_each=True,
                     )
-
-                ckpt = {
-                    "epoch": i + 1,
-                    "model": model.module.state_dict(),
-                    "scheduler": scheduler.state_dict(),
-                    "opt": opt.state_dict(),
-                    "args": args,
-                }
+                try:
+                    ckpt = {
+                        "epoch": i + 1,
+                        "model": model.module.state_dict(),
+                        "scheduler": scheduler.state_dict(),
+                        "opt": opt.state_dict(),
+                        "args": args,
+                    }
+                except:
+                    ckpt = {
+                        "epoch": i + 1,
+                        "model": model.state_dict(),
+                        "scheduler": scheduler.state_dict(),
+                        "opt": opt.state_dict(),
+                        "args": args,
+                    }
                 torch.save(ckpt, MODEL_FOLDER + f"/{i}.pth")
             accelerator.wait_for_everyone()
 
