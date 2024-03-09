@@ -6,7 +6,7 @@
 This is the official repository for the Energy Transformer (ET) written in PyTorch. The aim of this repository is to provide a quick example of ET usage in mask image completion and for users who are familiar with PyTorch and are interested in utilizing ET, which is originally written and developed in Jax.
 
 # Installation
-**Update (3/9/2023)**: Code is updated to user Accelerator from Huggingface.
+**Update (3/9/2023)**: Code is updated to user Accelerator from Huggingface and PyTorch 2.1.2.
 ```
 pip install -r requirements.txt
 ```
