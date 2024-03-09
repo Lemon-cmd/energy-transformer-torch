@@ -17,15 +17,17 @@ from image_et import (
     count_parameters,
     device,
     str2bool,
-    get_latest_file
+    get_latest_file,
 )
 
 from time import time
 from accelerate import Accelerator
 
+
 def make_dir(dir_name: str):
     if not os.path.isdir(dir_name):
         os.mkdir(dir_name)
+
 
 def main(args):
     IMAGE_FOLDER = args.result_dir + "/images"
@@ -33,7 +35,7 @@ def main(args):
 
     accelerator = Accelerator()
     device = accelerator.device
-    
+
     make_dir(args.result_dir)
     make_dir(IMAGE_FOLDER)
     make_dir(MODEL_FOLDER)
@@ -62,7 +64,7 @@ def main(args):
     NUM_PATCH = model.patch.N
     NUM_MASKS = int(model.patch.N * args.mask_ratio)
     trainset, testset, unnormalize_fn = GetCIFAR(args.data_path, args.data_name)
-    
+
     train_loader, test_loader = map(
         lambda z: DataLoader(
             z,
@@ -100,12 +102,12 @@ def main(args):
         opt.load_state_dict(checkpoint["opt"])
         model.load_state_dict(checkpoint["model"])
         scheduler.load_state_dict(checkpoint["scheduler"])
-    
+
     model, opt, train_loader, test_loader, scheduler = accelerator.prepare(
         model, opt, train_loader, test_loader, scheduler
     )
 
-    visual_num = 64
+    visual_num = 16
     training_display = range(start_epoch, args.epochs + 1)
 
     for i in training_display:
@@ -147,9 +149,12 @@ def main(args):
 
         if accelerator.is_main_process:
             epoch_time = end_time - start_time
-            avg_loss = torch.tensor(running_loss / len(train_loader), device=device) 
+            avg_loss = torch.tensor(running_loss / len(train_loader), device=device)
             avg_loss = avg_loss / accelerator.num_processes
-            print(f"Epoch: {i}/{args.epochs}, Loss: {avg_loss:.6f}, Time: {epoch_time:.5f}s", flush=True)
+            print(
+                f"Epoch: {i}/{args.epochs}, Loss: {avg_loss:.6f}, Time: {epoch_time:.5f}s",
+                flush=True,
+            )
 
         if i % args.ckpt_every == 0:
             if accelerator.is_main_process:
@@ -159,19 +164,25 @@ def main(args):
                     )
                     x_masked = patch_fn(x)
                     x_masked[batch_id, mask_id] = 0.0
-                    x, x_masked, pred = map(lambda z: z[:visual_num], (x, x_masked, pred))
-                    x_masked, pred = map(lambda z: patch_fn(z, reverse=True), (x_masked, pred))
-                    img = Resize((64, 64), antialias=True)(torch.cat([x, x_masked, pred], dim=0))
+                    x, x_masked, pred = map(
+                        lambda z: z[:visual_num], (x, x_masked, pred)
+                    )
+                    x_masked, pred = map(
+                        lambda z: patch_fn(z, reverse=True), (x_masked, pred)
+                    )
+                    img = Resize((64, 64), antialias=True)(
+                        torch.cat([x, x_masked, pred], dim=0)
+                    )
                     img = unnormalize_fn(img)
-        
+
                     save_image(
                         img,
                         IMAGE_FOLDER + "/{0}.png".format(i),
-                        nrow=8,
+                        nrow=4,
                         normalize=True,
                         scale_each=True,
                     )
-        
+
                 ckpt = {
                     "epoch": i + 1,
                     "model": model.module.state_dict(),
@@ -181,6 +192,7 @@ def main(args):
                 }
                 torch.save(ckpt, MODEL_FOLDER + f"/{i}.pth")
             accelerator.wait_for_everyone()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train ET as Mask Auto-encoder")
