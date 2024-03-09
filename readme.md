@@ -6,10 +6,11 @@
 This is the official repository for the Energy Transformer (ET) written in PyTorch. The aim of this repository is to provide a quick example of ET usage in mask image completion and for users who are familiar with PyTorch and are interested in utilizing ET, which is originally written and developed in Jax.
 
 # Installation
+**Update (3/9/2023)**: Code is updated to user Accelerator from Huggingface.
 ```
 pip install -r requirements.txt
 ```
-If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions. Credits to [Ben Hoover](https://github.com/bhoov) for the diagrams.
+If you encounter trouble with installing PyTorch, see https://pytorch.org for further instructions and [huggingface](https://huggingface.co/docs/accelerate/en/index) for accelerator tips. Credits to [Ben Hoover](https://github.com/bhoov) for the diagrams.
 
 <p float="center">
 <img src="./visuals/ET-details.jpeg" alt="drawing" height="425" width="2200"/>
@@ -63,26 +64,32 @@ model(x, mask_id=None, attn_mask=None, alpha=1.0, return_energy=False, use_cls=T
 
 # Training
 ```
-python train_mask_image_et.py \
-    --tkn_dim 128 \
-    --qk_dim 64 \
+accelerate launch python train.py \
+    --tkn-dim 128 \
+    --qk-dim 64 \
     --nheads 12 \
-    --hn_mult 4.0 \
-    --attn_beta 0.125 \
-    --attn_bias False \
-    --hn_bias False \
-    --time_steps 12 \
+    --hn-mult 4.0 \
+    --attn-beta 0.125 \
+    --attn-bias False \
+    --hn-bias False \
+    --time-steps 12 \
+    --alpha 10 \ 
     --blocks 1 \
     --epochs 1000 \
-    --avg_gpus False \
-    --result_path ./my_et \
-    --batch_size 128 \
-    --learning_rate 5e-5 \ 
-    --data_path ../data \ 
-    --data_name CIFAR100
+    --result-dir ./my_et \
+    --batch-size 128 \
+    --lr 5e-5 \ 
+    --b1 0.9 \
+    --b2 0.999 \ 
+    --mask-ratio 0.85 \ 
+    --weight-decay 0.0001 \ 
+    --data-path ../data \ 
+    --data-name cifar100
 ```
 
 ## Loading Model
+**Update (3/9/2023)**: A new model will be provided at some point in the future. The current model might not work well due to previous errors in code.
+
 There is an example model provided in the **example_model** folder. For further usage, see the provided jupyter notebook file (***eval_image_et_cifar10.ipynb***). 
 ```python
 import torch, pprint
