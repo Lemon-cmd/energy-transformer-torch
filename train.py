@@ -84,11 +84,11 @@ def main(args):
         weight_decay=args.weight_decay,
     )
 
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(
         opt,
-        cooldown=3,
-        patience=10,
-        factor=0.85,
+        T_0=10, 
+        T_mult=1, 
+        eta_min=1e-6
     )
 
     start_epoch = 1

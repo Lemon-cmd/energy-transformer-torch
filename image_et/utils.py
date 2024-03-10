@@ -23,7 +23,6 @@ def count_parameters(model):
 
 def unnormalize(x, std, mean):
     x = x * std + mean
-    x.clamp_(0, 255)
     return x
 
 
@@ -107,6 +106,6 @@ def GetCIFAR(root, which: str = "cifar10"):
     else:
         raise NotImplementedError("Not Available.")
 
-    std, mean = map(lambda z: np.array(z)[None, :, None, None] * 255.0, (std, mean))
+    std, mean = map(lambda z: np.array(z)[None, :, None, None], (std, mean))
 
     return (trainset, testset, partial(unnormalize, std=std, mean=mean))
