@@ -36,9 +36,10 @@ def main(args):
     accelerator = Accelerator()
     device = accelerator.device
 
-    make_dir(args.result_dir)
-    make_dir(IMAGE_FOLDER)
-    make_dir(MODEL_FOLDER)
+    if accelerator.is_main_process:
+        make_dir(args.result_dir)
+        make_dir(IMAGE_FOLDER)
+        make_dir(MODEL_FOLDER)
 
     x = torch.randn(1, 3, 32, 32)
     patch_fn = Patch(dim=args.patch_size)
@@ -144,7 +145,6 @@ def main(args):
 
         torch.cuda.synchronize()
         end_time = time()
-        running_loss /= len(train_loader)
         scheduler.step(running_loss)
 
         if accelerator.is_main_process:
